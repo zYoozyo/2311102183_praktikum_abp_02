@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Ramadhan Kareem - 2311102183</title>
+
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Aref+Ruqaa:wght@400;700&display=swap"
+    rel="stylesheet" />
+
+  <style>
+    /* ── Color Tokens ── */
+    :root {
+      --c-primary: #003215;
+      --c-primary-container: #004b23;
+      --c-on-primary-cont: #79bb87;
+      --c-secondary-cont: #fed65b;
+      --c-secondary-fixed: #ffe088;
+      --c-surface: #fbfaee;
+      --c-surface-low: #f5f4e8;
+      --c-surface-high: #e9e9dd;
+      --c-surface-lowest: #ffffff;
+      --c-on-surface-var: #404941;
+      --c-outline-var: #c0c9be;
+      --c-modal-bg: #2a6a3f;
+    }
+
+    /* ── Base ── */
+    body {
+      font-family: 'Manrope', sans-serif;
+      background-color: var(--c-surface);
+      color: #1b1c15;
+    }
+
+    .font-kamali {
+      font-family: 'Aref Ruqaa', serif;
+    }
+
+    .font-label {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    /* ── Navbar ── */
+    .navbar-custom {
+      background-color: var(--c-surface);
+      border-bottom: 1px solid rgba(192, 201, 190, 0.3);
+      height: 72px;
+    }
+
+    /* ── Hero ── */
+    .hero-section {
+      background: linear-gradient(135deg, #fbfaee 0%, #f0efe3 100%);
+      min-height: calc(100vh - 72px);
+    }
+
+    .hero-badge {
+      background-color: var(--c-surface-lowest);
+      border: 1px solid var(--c-outline-var);
+      color: var(--c-primary);
+    }
+
+    .hero-title {
+      font-size: clamp(3.5rem, 9vw, 6.5rem);
+      line-height: 1.05;
+    }
+
+    .hero-subtitle {
+      color: var(--c-on-surface-var);
+      max-width: 420px;
+      line-height: 1.75;
+    }
+
+    /* Decorative stars (top-left) */
+    .deco-icons {
+      opacity: 0.35;
+    }
+
+    .deco-icons .bi-star-fill {
+      font-size: 3.5rem;
+      color: var(--c-primary);
+    }
+
+    .deco-icons .bi-lightbulb-fill {
+      font-size: 2rem;
+      color: var(--c-primary);
+    }
+
+    /* Minaret image wrapper */
+    .minaret-wrapper {
+      position: relative;
+      display: flex;
+      justify-content: flex-end;
+      align-items: flex-end;
+    }
+
+    .minaret-img {
+      width: 100%;
+      max-width: 480px;
+      height: 580px;
+      object-fit: cover;
+      object-position: center top;
+      filter: grayscale(100%);
+      opacity: 0.92;
+      border-radius: 120px 120px 0 0;
+      display: block;
+      margin-left: auto;
+    }
+
+    /* Fallback gradient shown when image fails / is missing */
+    .minaret-wrapper::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, var(--c-surface) 0%, transparent 30%);
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* Placeholder shown when <img> src is blank or broken */
+    .img-placeholder {
+      width: 100%;
+      max-width: 480px;
+      height: 580px;
+      border-radius: 120px 120px 0 0;
+      background: linear-gradient(160deg, #d6e8da 0%, #b2cfba 50%, #8db5a0 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      color: var(--c-primary);
+      opacity: 0.6;
+      margin-left: auto;
+    }
+
+    .img-placeholder i {
+      font-size: 5rem;
+    }
+
+    .img-placeholder p {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    /* ── Gilded CTA ── */
+    .btn-gilded {
+      background: radial-gradient(circle at center, var(--c-secondary-fixed) 0%, var(--c-secondary-cont) 100%);
+      box-shadow: 0 12px 32px -8px rgba(115, 92, 0, 0.35);
+      border: none;
+      color: #574500;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 700;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .btn-gilded:hover {
+      transform: scale(1.05);
+      box-shadow: 0 16px 40px -8px rgba(115, 92, 0, 0.45);
+      color: #574500;
+    }
+
+    /* ── Description Section ── */
+    .section-divider {
+      width: 3rem;
+      height: 2px;
+      background-color: var(--c-primary);
+      flex-shrink: 0;
+    }
+
+    .desc-card {
+      background-color: var(--c-surface-lowest);
+      border-left: 6px solid var(--c-primary-container) !important;
+      line-height: 1.9;
+      color: var(--c-on-surface-var);
+    }
+
+    /* ── Sticky side image ── */
+    .side-img-wrapper {
+      background-color: var(--c-surface-low);
+      border-radius: 2.5rem;
+      padding: 0.75rem;
+    }
+
+    .side-img {
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      object-fit: cover;
+      filter: grayscale(100%);
+      border-radius: 2rem;
+      display: block;
+    }
+
+    /* Placeholder for side image */
+    .side-img-placeholder {
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      border-radius: 2rem;
+      background: linear-gradient(160deg, #d6e8da 0%, #8db5a0 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      color: var(--c-primary);
+      opacity: 0.55;
+    }
+
+    .side-img-placeholder i {
+      font-size: 3.5rem;
+    }
+
+    .side-img-placeholder p {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+    }
+
+    /* ── Goal Cards ── */
+    .goal-card {
+      border-radius: 2rem;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .goal-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 48px -12px rgba(0, 50, 21, 0.18) !important;
+    }
+
+    .goal-card-dark {
+      background-color: var(--c-primary-container);
+    }
+
+    .goal-card-light {
+      background-color: var(--c-surface-high);
+    }
+
+    /* ── Author block ── */
+    .author-block {
+      border-top: 1px solid var(--c-outline-var);
+    }
+
+    /* ── Footer ── */
+    footer {
+      background-color: var(--c-primary);
+    }
+
+    .footer-link {
+      color: rgba(251, 250, 238, 0.55);
+      text-decoration: none;
+      font-size: 0.85rem;
+      transition: color 0.2s;
+    }
+
+    .footer-link:hover {
+      color: var(--c-secondary-cont);
+    }
+
+    /* ── THR Modal ── */
+    .modal-thr .modal-content {
+      background-color: var(--c-modal-bg);
+      border: none;
+      border-radius: 2.5rem;
+      overflow: hidden;
+    }
+
+    .thr-blob {
+      width: 160px;
+      height: 160px;
+      filter: blur(48px);
+      opacity: 0.12;
+      pointer-events: none;
+    }
+
+    .thr-amount-box {
+      background-color: rgba(254, 214, 91, 0.15);
+      border: 1px solid rgba(254, 214, 91, 0.3);
+      border-radius: 1rem;
+    }
+
+    .thr-icon-wrap {
+      width: 96px;
+      height: 96px;
+      border-radius: 50%;
+      background-color: rgba(251, 250, 238, 0.1);
+    }
+
+    .modal-backdrop.show {
+      opacity: 0.5;
+      background-color: #003215;
+      backdrop-filter: blur(8px);
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ════════════════════════════════════
+     NAVBAR
+════════════════════════════════════ -->
+  <nav class="navbar fixed-top navbar-custom px-3 px-lg-5">
+    <div class="container-xl px-0">
+      <span class="navbar-brand font-kamali fw-bold fs-2 mb-0" style="color: var(--c-primary);">
+        Ramadhan Kareem
+      </span>
+    </div>
+  </nav>
+
+
+  <!-- ════════════════════════════════════
+     HERO SECTION
+════════════════════════════════════ -->
+  <main style="padding-top: 72px;">
+    <section class="hero-section position-relative d-flex align-items-center overflow-hidden px-3 px-lg-5 py-5">
+
+      <!-- Decorative icons top-left -->
+      <div class="position-absolute top-0 start-0 p-4 deco-icons d-none d-md-flex flex-column gap-3">
+        <i class="bi bi-star-fill"></i>
+        <i class="bi bi-lightbulb-fill ms-4"></i>
+      </div>
+
+      <div class="container-xl">
+        <div class="row align-items-end g-5">
+
+          <!-- Left: Text -->
+          <div class="col-12 col-lg-6 pb-lg-5">
+            <!-- Badge -->
+            <span class="d-inline-block hero-badge rounded-pill px-4 py-2 font-label fw-bold small text-uppercase mb-4">
+              Ramadhan Kareem
+            </span>
+
+            <!-- Headline -->
+            <h1 class="hero-title font-kamali fw-bold mb-3" style="color: var(--c-primary);">
+              Ramadhan<br />
+              <span style="color: var(--c-on-primary-cont);">Kareem</span>
+            </h1>
+
+            <!-- Subtitle -->
+            <p class="hero-subtitle fs-5 mb-5">
+              Semoga penuh berkah dan kebahagiaan dalam menyambut bulan yang suci ini.
+            </p>
+
+            <!-- CTA -->
+            <button class="btn btn-gilded rounded-pill px-5 py-3 fs-5 d-inline-flex align-items-center gap-3"
+              data-bs-toggle="modal" data-bs-target="#thrModal">
+              Ambil THR
+              <i class="bi bi-gift-fill"></i>
+            </button>
+          </div>
+
+          <!-- Right: Minaret Image -->
+          <div class="col-12 col-lg-6 minaret-wrapper">
+            <img src="gambar1.png" alt="Menara Masjid" class="minaret-img"
+              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+              onload="this.nextElementSibling.style.display='none';" />
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ════════════════════════════════════
+     DESKRIPSI & TUJUAN
+════════════════════════════════════ -->
+    <section class="py-5 px-3 px-lg-5" style="background-color: var(--c-surface);">
+      <div class="container-xl">
+        <div class="row g-5">
+
+          <!-- Left: Sticky Image (hidden on mobile) -->
+          <div class="col-lg-4 d-none d-lg-block">
+            <div class="sticky-top" style="top: 90px;">
+              <div class="side-img-wrapper">
+                <img src="gambar2.png" alt="Detail Arsitektur Masjid" class="side-img"
+                  onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                  onload="this.nextElementSibling.style.display='none';" />
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Content -->
+          <div class="col-12 col-lg-8 d-flex flex-column gap-5">
+
+            <!-- ── Deskripsi ── -->
+            <div>
+              <div class="d-flex align-items-center gap-3 mb-4">
+                <span class="section-divider"></span>
+                <h2 class="font-kamali fw-bold mb-0 fs-1" style="color: var(--c-primary);">Deskripsi</h2>
+              </div>
+              <div class="desc-card rounded-5 p-4 p-md-5 shadow-sm border-start border-5">
+                <p class="fs-5 mb-0">
+                  Bulan Ramadhan adalah bulan yang penuh berkah dan ampunan. Umat Muslim di seluruh dunia
+                  menjalankan ibadah puasa sebagai bentuk ketaatan kepada Allah SWT. Selama sebulan penuh,
+                  kita diajarkan untuk menahan hawa nafsu, memperbanyak amal ibadah, dan mempererat tali
+                  silaturahmi antar sesama manusia.
+                </p>
+              </div>
+            </div>
+
+            <!-- ── Tujuan ── -->
+            <div>
+              <div class="d-flex align-items-center gap-3 mb-4">
+                <span class="section-divider"></span>
+                <h2 class="font-kamali fw-bold mb-0 fs-1" style="color: var(--c-primary);">Tujuan</h2>
+              </div>
+              <div class="row g-4">
+
+                <!-- Card 1 -->
+                <div class="col-12 col-md-6">
+                  <div class="goal-card goal-card-dark p-4 p-md-5 h-100 shadow-sm">
+                    <i class="bi bi-heart-fill mb-4 d-block fs-1" style="color: var(--c-secondary-cont);"></i>
+                    <h3 class="font-kamali fw-bold fs-2 mb-3 text-white">Pembersihan Jiwa</h3>
+                    <p class="small mb-0 lh-lg" style="color: rgba(255,255,255,0.78);">
+                      Menyucikan hati dan pikiran dari sifat-sifat negatif melalui ibadah dan kesabaran.
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="col-12 col-md-6">
+                  <div class="goal-card goal-card-light p-4 p-md-5 h-100 shadow-sm">
+                    <i class="bi bi-people-fill mb-4 d-block fs-1" style="color: var(--c-primary);"></i>
+                    <h3 class="font-kamali fw-bold fs-2 mb-3" style="color: var(--c-primary);">Solidaritas Sosial</h3>
+                    <p class="small mb-0 lh-lg" style="color: var(--c-on-surface-var);">
+                      Meningkatkan kepedulian terhadap sesama yang membutuhkan melalui zakat dan sedekah.
+                    </p>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- ── Author ── -->
+            <div class="author-block pt-4 mt-2 text-center text-lg-start">
+              <p class="font-label small fw-semibold text-uppercase mb-1"
+                style="color: var(--c-on-surface-var); letter-spacing: 0.08em;">
+                Dikembangkan oleh:
+              </p>
+              <p class="font-kamali fw-bold fs-2 mb-1" style="color: var(--c-primary);">Muhammad Ragiel Prastyo</p>
+              <p class="mb-0 small" style="color: var(--c-on-surface-var);">Mahasiswa Teknik Informatika</p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+
+  <!-- ════════════════════════════════════
+     FOOTER
+════════════════════════════════════ -->
+  <footer class="py-5">
+    <div class="container text-center d-flex flex-column align-items-center gap-3">
+      <span class="font-kamali fw-bold fs-2" style="color: var(--c-secondary-cont);">Ramadhan Kareem</span>
+      <div class="d-flex gap-4 flex-wrap justify-content-center">
+        <a href="#" class="footer-link">Privacy Policy</a>
+        <a href="#" class="footer-link">Terms of Service</a>
+        <a href="#" class="footer-link">Contact Us</a>
+      </div>
+      <p class="mb-0 small" style="color: var(--c-secondary-cont);">© 2026 Muhammad Ragiel Prastyo. All rights reserved.
+      </p>
+    </div>
+  </footer>
+
+
+  <!-- ════════════════════════════════════
+     THR MODAL
+════════════════════════════════════ -->
+  <div class="modal fade modal-thr" id="thrModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-body p-5 text-center position-relative">
+
+          <!-- Decorative blobs -->
+          <div class="thr-blob bg-warning rounded-circle position-absolute top-0 end-0"
+            style="transform: translate(30%,-30%);"></div>
+          <div class="thr-blob bg-white rounded-circle position-absolute bottom-0 start-0"
+            style="transform: translate(-30%,30%);"></div>
+
+          <!-- Icon -->
+          <div class="thr-icon-wrap d-flex align-items-center justify-content-center mx-auto mb-4">
+            <i class="bi bi-balloon-heart-fill fs-1" style="color: var(--c-secondary-cont);"></i>
+          </div>
+
+          <!-- Title -->
+          <h2 class="font-kamali fw-bold text-white fs-1 lh-sm mb-4">
+            Selamat!<br />Anda mendapatkan THR
+          </h2>
+
+          <!-- Amount -->
+          <div class="thr-amount-box py-4 px-3 mb-4">
+            <p class="font-kamali fw-bold mb-0"
+              style="font-size: 2.75rem; color: var(--c-secondary-cont); letter-spacing: -0.02em;">
+              Rp. 1.000.000,
+            </p>
+          </div>
+
+          <!-- Subtitle -->
+          <p class="mb-5 px-lg-3" style="color: rgba(255,255,255,0.78); font-size: 0.95rem; line-height: 1.75;">
+            Semoga keberkahan ini membawa kebahagiaan bagi Anda dan keluarga di hari yang fitri nanti.
+          </p>
+
+          <!-- Close -->
+          <button class="btn btn-light w-100 rounded-pill py-3 fw-bold fs-5 shadow"
+            style="color: var(--c-primary); font-family: 'Plus Jakarta Sans', sans-serif;" data-bs-dismiss="modal">
+            Alhamdulillah
+          </button>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    /* Auto-show placeholder when img src is empty on page load */
+    document.querySelectorAll('img[src=""]').forEach(img => {
+      img.style.display = 'none';
+      const ph = img.nextElementSibling;
+      if (ph) ph.style.display = 'flex';
+    });
+  </script>
+</body>
+
+</html>

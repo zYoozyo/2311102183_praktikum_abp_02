@@ -1,7 +1,7 @@
 # Node modules (jangan di-push ke GitHub)
 node_modules/
 
-# npm/yarn lock files (opsional)
+# npm/yarn lock files 
 # package-lock.json
 # yarn.lock
 

@@ -16,3 +16,18 @@ npm-debug.log*
 # Environment variables
 .env
 .env.local
+
+# Flutter build output
+**/build/
+**/.dart_tool/
+**/.flutter-plugins
+**/.flutter-plugins-dependencies
+**/pubspec.lock
+
+# Firebase credentials (sensitive!)
+**/google-services.json
+**/GoogleService-Info.plist
+
+# Android local config
+**/local.properties
+**/GradleHome/
